@@ -1,15 +1,47 @@
-function FormName() {
+import { useState } from "react";
+
+function NameForm() {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted name:", name);
+
+    if (name.trim()) {
+      localStorage.setItem("userName", name);
+      window.location.href = "/home";
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-10">
       <span className="text-5xl">🌱</span>
-      <h1 className="text-[#52665A] text-base sm:text-lg font-bold ">Como podemos chamar você?</h1>
-      <form action="" className="flex flex-col gap-8" >
-        <input type="text" placeholder="Digite seu nome" className=" font-bold text-center border-b-2  border-gray-300 outline-none  text-gray-500 rounded placeholder:font-light" />
-        <button type="submit" className="bg-[#9AA710] hover:bg-[#88940f] text-white rounded-full h-10">
-          Enviar
+      <h1 className="text-[#52665A] text-base sm:text-lg font-bold">
+        What should we call you?
+      </h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="font-bold text-center border-b-2 border-gray-300 outline-none text-gray-500 rounded placeholder:font-light"
+        />
+
+        <button
+          type="submit"
+          disabled={!name.trim()}
+          className={`text-white rounded-full h-10 font-extralight transition-colors duration-300 ${
+            name.trim()
+              ? "bg-[#9aa710] text-white hover:bg-[#88940f]" // active color
+              : "bg-[#9aa71071] text-white cursor-not-allowed" // disabled color
+          }`}
+        >
+          Confirm
         </button>
       </form>
     </div>
   );
 }
-export default FormName;
+
+export default NameForm;
