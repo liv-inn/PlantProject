@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
-*{
-  box-sizing: border-box;
-  margin:0;
-  padding: 0;
+.hide-scrollbar {
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent; 
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+/* Efeito sutil durante interação */
+.hide-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.hide-scrollbar:active::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
 }

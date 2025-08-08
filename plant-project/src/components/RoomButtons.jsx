@@ -1,7 +1,7 @@
 import React from 'react';
 
 function RoomButtons() {
-  const rooms = ["Living Room", "Kitchen", "Bedroom", "Bathroom", "Garden"];
+  const rooms = ["Lounge", "Kitchen", "Bedroom", "Bathroom", "Garden"];
   const [activeRoom, setActiveRoom] = React.useState(rooms[0]);
 
   const handleClick = (room) => {
@@ -10,7 +10,7 @@ function RoomButtons() {
   };
 
   return (
-    <div className="flex gap-4 overflow-x-auto py-2 hide-scrollbar justify-center">
+    <div className="flex gap-4 overflow-x-auto  hide-scrollbar scrollbar-transparent  w-full ">
       {rooms.map((room) => (
         <button
           key={room}
