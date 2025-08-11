@@ -10,14 +10,14 @@ function RoomButtons() {
   };
 
   return (
-    <div className="flex gap-4 overflow-x-auto  hide-scrollbar scrollbar-transparent  w-full ">
+    <div className="flex  gap-4  p-1 overflow-x-auto  hide-scrollbar scrollbar-transparent  w-full ">
       {rooms.map((room) => (
         <button
           key={room}
           onClick={() => handleClick(room)}
           className={` p-2 rounded-lg w-fit h-10 text-sm transition-colors ${
             activeRoom === room
-              ? 'bg-[#9aa71085] border-[#9aa71073] border-2 text-white shadow-md font-semibold'
+              ? 'bg-[#9aa7104f]  text-[#9aa710]  '
               : 'bg-[#f7f7f7] text-[#706f6f] hover:bg-[#e0e0e0]'
           }`}
         >

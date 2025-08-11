@@ -31,3 +31,6 @@ export async function getPlantDetails(plantId) {
   }
 }
 
+export async function getAllPlants(){
+    
+}
