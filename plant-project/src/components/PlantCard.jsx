@@ -1,28 +1,47 @@
-function PlantCard(){
+import { getPlants } from "../api/plantApi";
+import { useState, useEffect } from "react";
 
-    function Plant(name, pic, description) {
-        this.name = name;
-        this.pic = pic;
-        this.description = description;
-    }
+function PlantCard() {
+  const [plants, setPlants] = useState([]);
 
-    const plants = [
-        new Plant("Fiddle Leaf Fig", "fiddle-leaf-fig.jpg", "A popular indoor plant with large, glossy leaves."),
-        new Plant("Snake Plant", "snake-plant.jpg", "A hardy plant that tolerates low light and irregular watering."),
-        new Plant("Pothos", "pothos.jpg", "A fast-growing vine that is easy to care for."),
-    ];
+  useEffect(() => {
+    const fetchPlants = async () => {
+      try {
+        const data = await getPlants();
+        setPlants(data.data);
+      } catch (error) {
+        console.error("Error fetching plants:", error);
+      }
+    };
 
-    return (
-        <>
-         <div className="flex flex-wrap gap-4 mt-2"> 
-               {plants.map((plant, index) => (
-                <div key={index} className="bg-gray-100 w-40 h-40 rounded-3xl  p-4 flex flex-col items-center">
-                    <img src={plant.pic} alt={plant.name} className="w-24 h-24 mb-2 rounded-full" />
-                    <h3 className="text-sm font-light text-[#333333c9]">{plant.name}</h3>
-                </div>
-            ))}
-         </div>
-        </>
-    );
+    fetchPlants();
+  }, []);
+
+  return (
+    <>
+      <div className="flex gap-4 mt-2">
+   <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  {plants.map((plant) => (
+    <li
+      key={plant.id}
+      className="p-2 text-gray-700 text-sm  bg-gray-100 rounded-lg flex flex-col items-center"
+    >
+      {plant.default_image?.medium_url && (
+        <img
+          src={plant.default_image.medium_url}
+          alt={plant.common_name}
+          width={100}
+          className="mb-2 rounded-lg"
+        />
+      )}
+      {plant.common_name}
+    </li>
+  ))}
+</ul>
+      </div>
+    </>
+  );
 }
+
+
 export default PlantCard;

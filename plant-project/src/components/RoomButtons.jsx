@@ -17,7 +17,7 @@ function RoomButtons() {
           onClick={() => handleClick(room)}
           className={` p-2 rounded-lg w-fit h-10 text-sm transition-colors ${
             activeRoom === room
-              ? 'bg-[#9aa710] text-white shadow-md'
+              ? 'bg-[#9aa71085] border-[#9aa71073] border-2 text-white shadow-md font-semibold'
               : 'bg-[#f7f7f7] text-[#706f6f] hover:bg-[#e0e0e0]'
           }`}
         >

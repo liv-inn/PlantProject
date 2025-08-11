@@ -25,7 +25,7 @@ function NameForm() {
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="font-bold text-center border-b-2 border-gray-300 outline-none text-gray-500 rounded placeholder:font-light"
+          className="font-bold text-center border-b border-gray-300 outline-none text-gray-500 rounded placeholder:font-light"
         />
 
         <button
@@ -33,8 +33,8 @@ function NameForm() {
           disabled={!name.trim()}
           className={`text-white rounded-full h-10 font-extralight transition-colors duration-300 ${
             name.trim()
-              ? "bg-[#9aa710] text-white hover:bg-[#88940f]" // active color
-              : "bg-[#9aa71071] text-white cursor-not-allowed" // disabled color
+              ? "bg-[#9aa710] text-white hover:bg-[#88940f]"
+              : "bg-[#9aa71071] text-white cursor-not-allowed" 
           }`}
         >
           Confirm
