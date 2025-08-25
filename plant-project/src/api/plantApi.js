@@ -9,7 +9,9 @@ export async function getPlants(page = 1) {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    return await response.json();
+    const data = await response.json();
+    // Retorna apenas o array de plantas
+    return data.data || [];
   } catch (error) {
     console.error("Failed to fetch plants:", error);
     throw error;
@@ -31,6 +33,17 @@ export async function getPlantDetails(plantId) {
   }
 }
 
-export async function getAllPlants(){
-    
+export async function getAllPlants() {
+  const allPlants = [];
+  let page = 1;
+  let hasMore = true;
+
+  while (hasMore) {
+    const plants = await getPlants(page); // Agora plants é um array
+    allPlants.push(...plants);
+    hasMore = plants.length > 0;
+    page++;
+  }
+
+  return allPlants;
 }

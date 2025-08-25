@@ -6,15 +6,22 @@ function LandingPageApp() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen  ">
-      <h1 className="text-[#9AA710] text-4xl font-bold flex justify-center ">GreenThumb</h1>
-       <FirstAnimation />
+      <h1 className="text-[#9AA710] text-4xl font-bold flex justify-center ">
+        GreenThumb
+      </h1>
+      <FirstAnimation />
 
-       <button onClick={() => navigate("/info-page")}         className="bg-[#9AA710] hover:bg-[#88940f] text-white text-2xl sm:text-3xl rounded-lg w-12 h-12 shadow-md transition flex items-center justify-center"
-       aria-label="Go to next page">
-         &gt;
-       </button>
+      <button
+        onClick={() => navigate("/info-page")}
+        className="bg-[#9AA710] hover:bg-[#88940f] text-white text-2xl sm:text-3xl rounded-lg w-12 h-12 shadow-md transition flex items-center justify-center"
+        aria-label="Go to next page"
+      >
+        &gt;
+      </button>
     </div>
   );
 }
 
 export default LandingPageApp;
+
+//se cria uma rota propria com url quando o conteudo ou funcionalidade faz sentido existir de forma independente

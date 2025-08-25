@@ -23,3 +23,25 @@
 .hide-scrollbar:active::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+
+.custom-radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-radio:checked::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  background-color: #9aa710;
+  border-radius: 50%;
+}
